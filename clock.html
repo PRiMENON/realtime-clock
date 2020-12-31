@@ -10,7 +10,7 @@ const DateTime = luxon.DateTime;
 const now = DateTime.local().toFormat('yyyy-LL-dd HH:mm:ss');
 document.getElementById('time').innerHTML = now;
 }
-setInterval('updateTime()', 30);
+setInterval('updateTime()', 1000);
 </script>
 <style>
 <!--

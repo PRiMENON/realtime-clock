@@ -2,15 +2,20 @@
 <html lang="ja">
 <head>
 <meta charset="utf-8">
-<title>clock</title>
+<title>realtime clock</title>
 <script src="luxon.min.js"></script>
 <script>
-function updateTime(){
-const DateTime = luxon.DateTime;
-const now = DateTime.local().toFormat('yyyy-LL-dd HH:mm:ss');
-document.getElementById('time').innerHTML = now;
-}
-setInterval('updateTime()', 1000);
+    'use strict';
+    function updateTime(){
+        const DateTime = luxon.DateTime;
+        const now = DateTime.local().toFormat('yyyy-LL-dd HH:mm:ss');
+        document.getElementById('time').innerHTML = now;
+    }
+    //setInterval('updateTime()', 1000);
+    setTimeout(function() {
+        updateTime();
+        setInterval("updateTime()",1000);
+    }, 1000 - new Date().getUTCMilliseconds());
 </script>
 <style>
 <!--
